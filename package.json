@@ -1,0 +1,22 @@
+{
+  "name": "caac-proxy",
+  "version": "1.0.0",
+  "description": "proxy used to query CAAC on your behalf. This is the backend for a frontend API which will not violate CORS",
+  "main": "server.js",
+  "repository": "sbonnick/everbridge-proxy",
+  "author": "Stewart Bonnick",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
+    "rally": "^2.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "develop": "nodemon server.js"
+  }
+}

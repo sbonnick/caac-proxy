@@ -1,0 +1,89 @@
+{
+  "project": {
+    "fetch": [
+      "Name", "ObjectID"
+    ],
+    "sanitize": [
+      "Name", "ObjectID"
+    ]
+  },
+
+  "defect": {
+    "fetch": [
+      "FormattedID", "Name", "DisplayColor", "Owner", "Ready", "Tags", "FlowState", "LastBuild",
+      "LastRun", "PassingTestCaseCount", "TestCaseCount", "ScheduleState", "ScheduleStatePrefix", "AcceptedDate",
+      "Package", "Blocked", "BlockedReason", "Defects", "Children", "InProgressDate", "Iteration", 
+      "PlanEstimate", "Release", "Feature"
+    ],
+    "sanitize": [
+      "FormattedID", "Name", "DisplayColor", "Ready", "LastBuild", "LastRun",
+      "PassingTestCaseCount", "TestCaseCount", "PlanEstimate",
+      "ScheduleState", "ScheduleStatePrefix", "AcceptedDate", "InProgressDate",
+      "Package", "Blocked", "BlockedReason",
+      {
+        "Tags":       ["Count", "_tagsNameArray"],
+        "Owner":      ["_refObjectName"],
+        "Iteration":  ["Name"],
+        "FlowState":  ["Name"],
+        "Release":    ["Name", "State"],
+        "Feature":    ["FormattedID", "Name"]
+      }
+    ]
+  },
+
+  "portfolioitem/initiative": {
+    "fetch": [
+      "FormattedID", "Name", "CreationDate", "Ready", "Tags", "DisplayColor", "ActualEndDate",
+      "ActualStartDate", "DirectChildrenCount", "PlannedEndDate", "PlannedStartDate",
+      "Children", "State"
+    ],
+    "sanitize": [
+      "FormattedID", "Name", "Ready", "DisplayColor", "CreationDate", "ActualEndDate",
+      "ActualStartDate", "DirectChildrenCount", "PlannedEndDate", "PlannedStartDate",
+      {
+        "Tags": ["Count", "_tagsNameArray"],
+        "State": ["Name"]
+      }
+    ]
+  },
+  
+  "portfolioitem/feature": {
+    "fetch": [
+      "FormattedID", "Name", "ScheduleState", "UserStories", "ActualEndDate", "ActualStartDate", 
+      "PlannedEndDate", "PlannedStartDate", "Tags", "DisplayColor", "Release", "State", "Children"
+    ],
+    "sanitize": [
+      "FormattedID", "Name", "DisplayColor", "DirectChildrenCount", 
+      "ActualEndDate", "ActualStartDate", "PlannedEndDate", "PlannedStartDate",
+      {
+        "Tags": ["Count", "_tagsNameArray"],
+        "Release": ["Name", "State"],
+        "Project": ["_refObjectName"],
+        "State": ["Name"]
+      }
+    ]
+  },
+
+  "hierarchicalrequirement": {
+    "fetch": [
+      "FormattedID", "Name", "DisplayColor", "Owner", "Ready", "Tags", "FlowState", "LastBuild",
+      "LastRun", "PassingTestCaseCount", "TestCaseCount", "ScheduleState", "ScheduleStatePrefix", "AcceptedDate",
+      "Package", "Blocked", "BlockedReason", "Defects", "Children", "InProgressDate", "Iteration", 
+      "PlanEstimate", "Release", "Feature"
+    ],
+    "sanitize": [
+      "FormattedID", "Name", "DisplayColor", "Ready", "LastBuild", "LastRun",
+      "PassingTestCaseCount", "TestCaseCount", "PlanEstimate",
+      "ScheduleState", "ScheduleStatePrefix", "AcceptedDate", "InProgressDate",
+      "Package", "Blocked", "BlockedReason",
+      {
+        "Tags":       ["Count", "_tagsNameArray"],
+        "Owner":      ["_refObjectName"],
+        "Iteration":  ["Name"],
+        "FlowState":  ["Name"],
+        "Release":    ["Name", "State"],
+        "Feature":    ["FormattedID", "Name"]
+      }
+    ]
+  }
+}
